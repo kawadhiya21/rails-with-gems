@@ -3,7 +3,6 @@ class UploadersController < ApplicationController
 
   def index
     @files = current_user.z_files
-    puts @files.inspect
     @file = ZFile.new
   end
 
@@ -19,7 +18,6 @@ class UploadersController < ApplicationController
 
   private
   def file_params
-    puts params.inspect
     params.require(:z_file).permit(:file_hash)
   end
 
