@@ -16,4 +16,4 @@
 <% if current_user.role == 'admin' %>
   <p><%= link_to 'Admin Area', '/admin_area' %></p>
 <% end %>
-<%= link_to 'Logout', '/logout' %>
+<%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
