@@ -1,0 +1,19 @@
+<% flash.each do |key, val| %>
+  <b><%= val %></b>
+<% end %>
+<h3>Files</h3>
+<ul>
+  <% @files.each do |file| %>
+    <li><%= link_to file.file_hash_file_name, uploader_path(file)%></li>
+  <% end %>
+</ul>
+
+<h4>Add new</h4>
+<%= form_for @file, :url => {:action => :create , multipart: true} do |f| %>
+  <p><%= f.file_field :file_hash %></p>
+  <p><%= f.submit "Upload" %></p>
+<% end %>
+<% if current_user.role == 'admin' %>
+  <p><%= link_to 'Admin Area', '/admin_area' %></p>
+<% end %>
+<%= link_to 'Logout', '/logout' %>
