@@ -9,6 +9,6 @@ class User < ActiveRecord::Base
 
   private
   def default_role
-  	self.role ||= "user"
+    self.role ||= "user"
   end
 end
